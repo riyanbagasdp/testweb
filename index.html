@@ -39,7 +39,8 @@
             cursor: pointer;
         }
 
-        .card:hover {
+        /* Menghapus efek hover */
+        .card.clicked {
             transform: rotateY(180deg);
         }
 
@@ -98,8 +99,8 @@
 </head>
 <body>
     <script>
-        const name = prompt("Siapa nama Anda?");
-        alert(`Selamat ulang tahun ${name}`);
+        const name = prompt("Aduh namamu siapa ya, aku lupa?");
+        alert(`Selamat ulang tahun mas ${name}`);
         alert("Semoga apa apa yang diinginkan bisa segera tercapai.");
         const permission = confirm("Btw, boleh poligami kan hehe?");
         if (permission) {
@@ -114,7 +115,7 @@
         Your browser does not support the audio element.
     </audio>
 
-    <div class="card">
+    <div class="card" onclick="flipCard(this)">
         <!-- Front of the card -->
         <div class="front">
             <img src="https://1.bp.blogspot.com/-Mgj9-rbs65E/XfMoPSD5gtI/AAAAAAAAURk/NBokE2gSS2cTSJ2em5lZ5hJDuTtRN7UVwCLcBGAsYHQ/s1600/2713997.png" 
@@ -133,9 +134,13 @@
     </div>
 
     <!-- Button to trigger the audio play -->
-    <button id="playButton" onclick="playAudio()">Dengerin Donks</button>
+    <button id="playButton" onclick="playAudio()">Klik kartu sama klik disini yeach</button>
 
     <script>
+        function flipCard(card) {
+            card.classList.toggle('clicked'); // Toggle class on click
+        }
+
         function playAudio() {
             var audio = document.getElementById('birthdayAudio');
             audio.play();
